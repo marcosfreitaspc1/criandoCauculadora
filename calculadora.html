@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+    <main>
+        <article>    
+            <section>
+                <textarea id="monitor" cols="20"rows="2"></textarea>
+                <textarea name="" id="res" cols="20" rows="2"></textarea>
+            </section>
+            <section>
+                <div>
+                    <aside id="oper1">
+                        <input type="button"  value="%" onclick="percent()">
+                        <input type="button" value="x&sup2;" onclick="potenci()">
+                        <input type="button" value="&radic;" onclick="radic()">
+                    </aside>
+                    <aside id="number">
+                        <input type="button"value="7" id="n7" onclick="digt7()">
+                        <input type="button"value="8" id="n8" onclick="digt8()">
+                        <input type="button"value="9" id="n9" onclick="digt9()">
+                        <br>
+                        <input type="button"value="4" id="n4" onclick="digt4()">
+                        <input type="button"value="5" id="n5" onclick="digt5()">
+                        <input type="button"value="6" id="n6" onclick="digt6()">
+                        <br>
+                        <input type="button"value="1" id="n1" onclick="digt1()">
+                        <input type="button"value="2" id="n2" onclick="digt2()">
+                        <input type="button"value="3" id="n3" onclick="digt3()">
+                        <br>
+                        <input type="button" value="00">
+                        <input type="button"value="0" id="n0" onclick="digt0()">
+                        <input type="button" value="," id="nn" onclick="digtn()">
+                    </aside>
+                </div>
+                <div>
+                    <aside id="oper2">
+                        <input type="button"  value="&divide;" onclick="divide()">
+                        <br>
+                        <input type="button" value="&times;" onclick="times()">
+                        <br>
+                        <input type="button" value="&minus;" onclick="minus()">
+                        <br>
+                        <input type="button" value="&plus;" onclick="plus()">
+                        <br>
+                        <input type="button" value="&equals;">
+                    </aside>
+                </div>
+            </section>
+        </article>
+    </main>
+    <script src="calculadora.js"></script>
+</body>
+</html>
