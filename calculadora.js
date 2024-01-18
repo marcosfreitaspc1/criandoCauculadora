@@ -11,302 +11,66 @@ let n7 = document.getElementById('n7')
 let n8 = document.getElementById('n8')
 let n9 = document.getElementById('n9')
 let nn = document.getElementById('nn')
-let box = ''
-let box1 = 0
-let box2 = 0
-let box3 = 0
-let operador = 0
-let sinal = 0
-let causa = 0
+let box = []
+let box1 = ''
+let box2 = []
+let box3 = ''
 
 function digt1() {
-    if (box == 0 || box != 0) {
-        monitor.innerHTML += '1'
-        box += '1'
-        box1 = Number(box)
-        if (operador == 0) {
-            box3 = box2 + box1
-            res.innerHTML = box3
-            sinal = 0
-        } else if (operador == 1) {
-            box3 = box2 + box1
-            res.innerHTML = box3
-            sinal = 0
-        } else if (operador == 2) {
-            box3 = box2 * box1
-            res.innerHTML = box3
-            sinal = 0
-        } else if (operador == 3) {
-            box3 = box2 / box1
-            res.innerHTML = box3
-            sinal = 0
-        } else if (operador == 4) {
-            if (causa == 0) {
-                if (sinal == 0) {
-                    box3 = Math.sqrt(box1)
-                    res.innerHTML = box3
-                } else if (sinal == 1) {
-                    box3 = -Math.sqrt(box1)
-                    res.innerHTML = box3
-                } else if (sinal == 2) {
-                    box3 = Math.sqrt(box1)
-                    res.innerHTML = box3
-                }
-            } else if (causa == 1) {
-                if (box2 > 0) {
-                    box3 = box2 * Math.sqrt(box1)
-                    res.innerHTML = box3
-                } else if (box2 < 0) {
-                    box3 = box2 * Math.sqrt(box1)
-                    res.innerHTML = box3
-                }
-            } else if (causa == 2) {
-                if (box2 > 0) {
-                    box3 = box2 / Math.sqrt(box1)
-                    res.innerHTML = box3
-                } else if (box2 < 0) {
-                    box3 = box2 / Math.sqrt(box1)
-                    res.innerHTML = box3
-                }
-            } else if (causa == 3) {
-                box3 = box2 - Math.sqrt(box1)
-                res.innerHTML = box3
-            } else if (causa == 4) {
-                box3 = box2 + Math.sqrt(box1)
-                res.innerHTML = box3
-            }
-        }
+    if (box1 == 0 || box1 != 0) {
+        box1 += '1'
+        exibirNaTela()
     }
 }
-function minus() {
-    if (operador == 0 && sinal == 0) {
-        if (box1 == 0) {
-            box2 = box2 + box1
-            box = '-'
-            monitor.innerHTML += '-'
-            sinal = 1
-        } else if (box1 != 0) {
-            box2 = box2 + box1
-            box = '-'
-            monitor.innerHTML += '-'
-            sinal = 1
-            operador = 1
-        }
-    } else if (operador == 1) {
-        if (Number(box) >= 0 || Number(box) < 0) {
-            box2 = box2 + box1
-            box = '-'
-            monitor.innerHTML += '-'
-            operador = 1
-        }
-    } else if (operador == 2 && sinal == 0) {
-        if (box == '') {
-            monitor.innerHTML += '-'
-            box = '-'
-            sinal = 1
-        } else if (box1 >= 0 || box1 < 0)  {
-            monitor.innerHTML += '-'
-            box2 = box2 * box1
-            box = '-'
-            operador = 1
-            sinal = 1
-        }
-    } else if (operador == 3 && sinal == 0) {
-        if (box == '') {
-            monitor.innerHTML += '-'
-            box = '-'
-            sinal = 1
-        } else if (box1 >= 0 || box1 < 0)  {
-            monitor.innerHTML += '-'
-            box2 = box2 / box1
-            box = '-'
-            operador = 1
-            sinal = 1
-        }
-    } else if (operador == 4 && box != 0) {
-        monitor.innerHTML += '-'
-        box2 = box3
-        box = '-'
-        operador = 1
+function digt2() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '2'
+        exibirNaTela()
     }
 }
-function plus() {
-    if (operador == 0 && sinal == 0) {
-        if (box1 == 0) {
-            box2 = box2 + box1
-            box = ''
-            monitor.innerHTML += '+'
-            sinal = 2
-        } else if (box1 != 0) {
-            box2 = box2 + box1
-            box = ''
-            monitor.innerHTML += '+'
-            sinal = 1
-            operador = 1
-        }
-    } else if (operador == 1) {
-        if (Number(box) >= 0 || Number(box) < 0) {
-            box2 = box2 + box1
-            box = '+'
-            monitor.innerHTML += '+'
-            operador = 1
-        }
-    } else if (operador == 2 && sinal == 0) {
-        if (box == '') {
-            monitor.innerHTML += '+'
-            box = ''
-            sinal = 2
-        } else if (box1 >= 0 || box1 < 0)  {
-            monitor.innerHTML += '+'
-            box2 = box2 * box1
-            box = ''
-            operador = 1
-            sinal = 2
-        }
-    } else if (operador == 3 && sinal == 0) {
-        if (box == '') {
-            monitor.innerHTML += '+'
-            box = ''
-            sinal = 2
-        } else if (box1 >= 0 || box1 < 0)  {
-            monitor.innerHTML += '+'
-            box2 = box2 / box1
-            box = ''
-            operador = 1
-        }
-    } else if (operador == 4 && box != 0) {
-        monitor.innerHTML += '+'
-        box2 = box3
-        box = ''
-        operador = 1
+function digt3() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '3'
+        exibirNaTela()
     }
 }
-function times() {
-    sinal = 0
-    if (operador == 0 && box != 0) {
-        monitor.innerHTML += '&times;'
-        box2 = box1
-        box = ''
-        operador = 2
-    } else if (operador == 1) {
-        monitor.innerHTML += '&times;'
-        box2 = box2 + box1
-        box = ''
-        operador = 2
-    } else if (operador == 2 && box != 0) {
-        monitor.innerHTML += '&times;'
-        box2 = box2 * box1
-        box = ''
-        operador = 2
-    } else if (operador == 3) {
-        monitor.innerHTML += '&times;'
-        box2 = box2 / box1
-        box = ''
-        operador = 2
-    } else if (operador == 4) {
-        if (box != 0) {
-            monitor.innerHTML += '&times;'
-            box2 = box3
-            box = ''
-            operador = 2
-        }
+function digt4() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '4'
+        exibirNaTela()
     }
 }
-function divide() {
-    sinal = 0
-    if (operador == 0 && box != 0) {
-        monitor.innerHTML += '&divide;'
-        box2 = box1
-        box = ''
-        operador = 3
-    } else if (operador == 1) {
-        monitor.innerHTML += '&divide;'
-        box2 = box2 + box1
-        box = ''
-        operador = 3
-    } else if (operador == 2) {
-        monitor.innerHTML += '&divide;'
-        box2 = box2 * box1
-        box = ''
-        operador = 3
-    } else if (operador == 3 && box != 0) {
-        monitor.innerHTML += '&divide;'
-        box2 = box2 / box1
-        box = ''
-        operador = 3
-    } else if (operador == 4) {
-        if (box != 0) {
-            monitor.innerHTML += '&divide;'
-            box2 = box3
-            box = ''
-            operador = 3
-        }
+function digt5() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '5'
+        exibirNaTela()
     }
 }
-function radic() {
-    if (operador == 0) {
-        if (box == '') {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            sinal = 0
-        } else if (box == '-') {
-            monitor.innerHTML += '&radic;'
-            box = ''
-            operador = 4
-            sinal = 1
-        }else if (box == '+') {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            sinal = 2
-        } else if (box > 0) {
-            monitor.innerHTML += '&radic;'
-            box2 = box1
-            box = ''
-            operador = 4
-            causa = 1
-        } else if (box < 0) {
-            monitor.innerHTML += '&radic;'
-            box2 = box1
-            box = ''
-            operador = 4
-            causa = 1
-        }
-    } else if (operador == 1) {
-        if (box == 0) {
-            monitor.innerHTML += '&radic;'
-            box = 0
-            operador = 4
-            causa = 3
-        } else if (box != 0) {
-            monitor.innerHTML += '&radic;'
-            box = 0
-            operador = 4
-            causa = 3
-        }
-    } else if (operador == 2) {
-        if (box == 0) {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            causa = 1
-        } else if (box > 0 || box < 0) {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            causa = 1
-        }
-    } else if (operador == 3) {
-        if (box == 0) {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            causa = 2
-        } else if (box > 0 || box < 0) {
-            monitor.innerHTML += '&radic;'
-            operador = 4
-            causa = 2
-        }
-    } else if (operador == 4 && box != 0) {
-        monitor.innerHTML += '&radic;'
-        box2 = box3
-        box = ''
-        operador = 4
+function digt6() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '6'
+        exibirNaTela()
     }
+}
+function digt7() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '7'
+        exibirNaTela()
+    }
+}
+function digt8() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '8'
+        exibirNaTela()
+    }
+}
+function digt9() {
+    if (box1 == 0 || box1 != 0) {
+        box1 += '9'
+        exibirNaTela()
+    }
+}
+function exibirNaTela() {
+    monitor.innerHTML = box1
+    box2[i] = Number(box1)
 }
