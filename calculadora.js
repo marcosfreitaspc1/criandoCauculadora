@@ -1,18 +1,8 @@
 var monitor = document.getElementById('monitor')
 var res = document.getElementById('res')
-var n0 = document.getElementById('n0')
-var n1 = document.getElementById('n1')
-var n2 = document.getElementById('n2')
-var n3 = document.getElementById('n3')
-var n4 = document.getElementById('n4')
-var n5 = document.getElementById('n5')
-var n6 = document.getElementById('n6')
-var n7 = document.getElementById('n7')
-var n8 = document.getElementById('n8')
-var n9 = document.getElementById('n9')
-var nn = document.getElementById('nn')
 var i = -1
-var mostrar = ''
+var tudo1 = ''
+var tudo2 = []
 var box1 = ''
 var box2 = ''
 var box3 = []
@@ -75,15 +65,33 @@ function digt9() {
         exibirNaTela()
     }
 }
+function digt0() {
+    if (box1 == 0 || box1 != 0) {
+        box1 = '0'
+        exibirNaTela()
+    }
+}
+function digtv() {
+    if (box1 == 0 || box1 != 0) {
+        box1 = ','
+        exibirNaTela()
+    }
+}
 
 //exibir o valor inserido e guardalo com number
 function exibirNaTela() {
     monitor.innerHTML += box1
-    box2 += Number(box1)
-    res.innerHTML = resolver()
+    guardartudo()
+    if (box1 != ',') {
+        box2 += Number(box1)
+        res.innerHTML = resolver()
+    } else if (box1 == ',') {
+        box2 += '.'
+        res.innerHTML = resolver()
+    }
 }
-
 //inserir um operador
+
 function divide() {
     if (box2 != '') {
         simb1 = 0
@@ -112,6 +120,7 @@ function plus() {
 
 function contar() {
     box3.push(box2)
+    guardartudo()
     if (simb1 === 0) {
         monitor.innerHTML += "&divide;"
     } else if (simb1 == 1) {
@@ -120,7 +129,7 @@ function contar() {
         monitor.innerHTML += "&minus;"
     } else if (simb1 == 3) {
         monitor.innerHTML += "&plus;"
-    }
+    } 
     if (resultado === '') {
         resultado = box2
     }
@@ -131,6 +140,10 @@ function contar() {
 }
 
 //executar uma operação
+function guardartudo() {
+    tudo1 = box1
+    tudo2.push()
+}
 
 function resolver() {
     if (simb2[i] === 0) {
@@ -140,7 +153,19 @@ function resolver() {
     } else if (simb2[i] == 2) {
         resultado = resultado - box2
     } else if (simb2[i] == 3) {
-        resultado = resultado + box2
+        resultado = resultado - -box2
     }
+
     return resultado
+}
+function delet() {
+    if (simb2[i] === 0) {
+        resultado = resultado / box2
+    } else if (simb2[i] == 1) {
+        resultado = resultado * box2
+    } else if (simb2[i] == 2) {
+        resultado = resultado - box2
+    } else if (simb2[i] == 3) {
+        resultado = resultado - -box2
+    }
 }
